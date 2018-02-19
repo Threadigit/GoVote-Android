@@ -4,7 +4,7 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="next" translatable="false">NEXT</string>
     <string name="skip" translatable="false">FIND PVC</string>
-    <string name="start" translatable="false">FIND PVC NOW</string>
+    <string name="start" translatable="false">FIND PVC </string>
     <string name="first_text">BRUH, DO YOU EVEN VOTE?</string>
     <string name="first_desc">The 2019 General Elections are almost here and it’s important we all
         go out, young and old to ensure that the right people are voted in to power.</string>
@@ -18,4 +18,9 @@
     <string name="third_text">WHAT NEXT? </string>
     <string name="third_desc">We vote. This is not the time to leave the future up to chance. Read
         more about why you need to vote here.</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="action_search">Search PVC Locations</string>
+    <string name="suggest">Suggest</string>
+    <string name="share">Share</string>
+    <string name="pvc_api_key">k9ihbvse57fvsujbsvsi5362WE$NFD2</string>
 </resources>
