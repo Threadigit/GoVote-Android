@@ -2,4 +2,20 @@
     <string name="app_name">GoVote</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="next" translatable="false">NEXT</string>
+    <string name="skip" translatable="false">FIND PVC</string>
+    <string name="start" translatable="false">FIND PVC NOW</string>
+    <string name="first_text">BRUH, DO YOU EVEN VOTE?</string>
+    <string name="first_desc">The 2019 General Elections are almost here and it’s important we all
+        go out, young and old to ensure that the right people are voted in to power.</string>
+
+    <string name="sec_text">OKAY, BUT HOW DO I VOTE?</string>
+    <string name="sec_desc">You need to register to vote. For that, you’ll need a Permanent Voters
+        Card (PVC) to be able to vote in the upcoming elections. A PVC can be collected from wards
+        around your area of residence. govote allows you to search for PVC collection centers in
+        your area.</string>
+
+    <string name="third_text">WHAT NEXT? </string>
+    <string name="third_desc">We vote. This is not the time to leave the future up to chance. Read
+        more about why you need to vote here.</string>
 </resources>
