@@ -5,6 +5,7 @@ package com.crevhive.govote;
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -38,7 +39,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        myViewPagerAdapter = new WelcomePageAdapter(layouts, layoutInflater);
+        myViewPagerAdapter = new WelcomePageAdapter(layouts, layoutInflater,this);
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
 
@@ -63,6 +64,9 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
             }
         });
+        overridePendingTransition(android.R.anim.fade_in,
+                android.R.anim.fade_out);
+
     }
 
     private void settUI() {
@@ -163,13 +167,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void launchMainScreen() {
 
+        startActivity(new Intent(this,SearchActivity.class));
     }
 
-    /**
-     * View pager adapter
-     */
-    public class MyViewPagerAdapter {
-
-    }
 }
 
