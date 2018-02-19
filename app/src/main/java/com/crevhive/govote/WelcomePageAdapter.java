@@ -1,9 +1,11 @@
 package com.crevhive.govote;
 
+import android.app.Activity;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 
 /**
  * Created by toluadetuyi on 2/19/18.
@@ -13,11 +15,13 @@ public class WelcomePageAdapter extends PagerAdapter {
 
     private LayoutInflater layoutInflater;
     int[] layouts;
+    Activity activity;
 
-    public WelcomePageAdapter(int[] layouts, LayoutInflater layoutInflater) {
+    public WelcomePageAdapter(int[] layouts, LayoutInflater layoutInflater, Activity activity) {
 
         this.layouts = layouts;
         this.layoutInflater = layoutInflater;
+        this.activity = activity;
     }
 
     @Override
@@ -26,6 +30,8 @@ public class WelcomePageAdapter extends PagerAdapter {
         View view = layoutInflater.inflate(layouts[position], container, false);
         container.addView(view);
 
+        activity.overridePendingTransition(android.R.anim.fade_in,
+                android.R.anim.fade_out);
         return view;
     }
 
