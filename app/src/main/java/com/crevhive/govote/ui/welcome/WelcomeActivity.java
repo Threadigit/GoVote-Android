@@ -1,10 +1,11 @@
-package com.crevhive.govote;
+package com.crevhive.govote.ui.welcome;
 
 /**
- * Created by toluadetuyi on 8/3/17.
+ * @author toluAdetuyi
  */
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,75 +20,79 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.crevhive.govote.R;
+import com.crevhive.govote.ui.search.SearchActivity;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    private ViewPager viewPager;
-    private WelcomePageAdapter myViewPagerAdapter;
-    private LinearLayout dotsLayout;
+    @BindView(R.id.view_pager)
+    public ViewPager viewPager;
+
+    @BindView(R.id.layoutDots)
+    public LinearLayout dotsLayout;
+
+    @BindView(R.id.btn_skip)
+    public Button btnSkip;
+
+    @BindView(R.id.btn_next)
+    public Button btnNext;
+
     private TextView[] dots;
     private int[] layouts;
-    private Button btnSkip, btnNext;
+
+    private WelcomePageAdapter myViewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        checkversionForDisplay();
-        settUI();
+        setContentView(R.layout.activity_welcome);
+        ButterKnife.bind(this);
 
-        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        init();
 
-        myViewPagerAdapter = new WelcomePageAdapter(layouts, layoutInflater);
-        viewPager.setAdapter(myViewPagerAdapter);
-        viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
+        overridePendingTransition(android.R.anim.fade_in,
+                android.R.anim.fade_out);
 
-        btnSkip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchMainScreen();
-            }
-        });
-
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // checking for last page
-                // if last page home screen will be launched
-                int current = getItem(+1);
-                if (current < layouts.length) {
-                    // move to next screen
-                    viewPager.setCurrentItem(current);
-                } else {
-                    launchMainScreen();
-                }
-            }
-        });
     }
 
-    private void settUI() {
+    private void init() {
 
+        checkversionForDisplay();
 
-        setContentView(R.layout.activity_welcome);
-        viewPager = findViewById(R.id.view_pager);
-        dotsLayout = findViewById(R.id.layoutDots);
-        btnSkip = findViewById(R.id.btn_skip);
-        btnNext = findViewById(R.id.btn_next);
-        //layouts of all welcome sliders
-        // add few more layouts if you want
-        layouts = new int[]{
-                R.layout.welcome_slide1,
-                R.layout.welcome_slide2,
-                R.layout.welcome_slide3};
-        // adding bottom dots
-        addBottomDots(0);
+        initViewPager();
+
         // making notification bar transparent
         changeStatusBarColor();
     }
 
-    private void addBottomDots(int currentPage) {
-        dots = new TextView[layouts.length];
+    private void initViewPager() {
 
+        //add all slides layouts
+        layouts = new int[]{
+                R.layout.welcome_slide1,
+                R.layout.welcome_slide2,
+                R.layout.welcome_slide3};
+
+        // adding bottom dots
+        addBottomDots(0);
+
+        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        myViewPagerAdapter = new WelcomePageAdapter(layouts, layoutInflater, this);
+        viewPager.setAdapter(myViewPagerAdapter);
+        viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
+
+    }
+
+    private void addBottomDots(int currentPage) {
+
+        dots = new TextView[layouts.length];
         int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
         int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive);
 
@@ -115,25 +120,23 @@ public class WelcomeActivity extends AppCompatActivity {
         }
     }
 
-    private int getItem(int i) {
-        return viewPager.getCurrentItem() + i;
-    }
 
-
-    //	viewpager change listener
+    /**
+     * Update the view pager on change
+     */
     ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
 
         @Override
         public void onPageSelected(int position) {
             addBottomDots(position);
 
-            // changing the next button text 'NEXT' / 'GOT IT'
             if (position == layouts.length - 1) {
-                // last page. make button text to GOT IT
+
                 btnNext.setText(getString(R.string.start));
                 btnSkip.setVisibility(View.GONE);
+
             } else {
-                // still pages are left
+
                 btnNext.setText(getString(R.string.next));
                 btnSkip.setVisibility(View.VISIBLE);
             }
@@ -151,6 +154,17 @@ public class WelcomeActivity extends AppCompatActivity {
     };
 
     /**
+     * Get the current item within view pager
+     *
+     * @param count
+     * @return
+     */
+    private int getItem(int count) {
+        return viewPager.getCurrentItem() + count;
+    }
+
+
+    /**
      * Making notification bar transparent
      */
     private void changeStatusBarColor() {
@@ -161,15 +175,36 @@ public class WelcomeActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Launch the main search screen
+     */
     private void launchMainScreen() {
 
+        startActivity(new Intent(this, SearchActivity.class));
     }
 
-    /**
-     * View pager adapter
-     */
-    public class MyViewPagerAdapter {
+    @OnClick(R.id.btn_next)
+    public void onNextClick(View v) {
 
+
+        int current = getItem(+1);
+
+        if (current < layouts.length) {
+
+            // move to next screen
+            viewPager.setCurrentItem(current);
+
+        } else {
+
+            launchMainScreen();
+
+        }
+    }
+
+    @OnClick(R.id.btn_skip)
+    public void onSkipClick(View v) {
+
+        launchMainScreen();
     }
 }
 

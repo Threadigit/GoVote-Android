@@ -4,7 +4,7 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="next" translatable="false">NEXT</string>
     <string name="skip" translatable="false">FIND PVC</string>
-    <string name="start" translatable="false">FIND PVC NOW</string>
+    <string name="start" translatable="false">FIND PVC </string>
     <string name="first_text">BRUH, DO YOU EVEN VOTE?</string>
     <string name="first_desc">The 2019 General Elections are almost here and it’s important we all
         go out, young and old to ensure that the right people are voted in to power.</string>
@@ -16,6 +16,35 @@
         your area.</string>
 
     <string name="third_text">WHAT NEXT? </string>
-    <string name="third_desc">We vote. This is not the time to leave the future up to chance. Read
-        more about why you need to vote here.</string>
+    <string name="third_desc">We vote. This is not the time to leave the future up to chance.
+        Get your PVC now and work majestically on election day to cast your vote</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="action_search">Search PVC Locations</string>
+    <string name="suggest">Suggest</string>
+    <string name="share">Share</string>
+    <string name="pvc_api_key">k9ihbvse57fvsujbsvsi5362WE$NFD2</string>
+    <string name="baseUrl">https://api.govote.org.ng/</string>
+    <string name="loc_error_prompt">An error occurred loading locations, please try again</string>
+    <string name="loading">Loading PVC Loctions...</string>
+    <string name="about">About</string>
+    <string name="reload">Reload</string>
+    <string name="share_via">Share Via</string>
+    <string name="playstore_download">Download Smart PVC registration locator mobile app via https://play.google.com/store/apps/details?id=com.crevhive.govote</string>
+    <string name="about_app">
+        <div>
+            <p>govote was built to make sure that the first hurdle concerning the elections can be cleared; registering to vote.</p>
+            <p>The codebase for this mobile App have been made open source so that we can all contribute</p>
+            <p>Also the API and Web App on which this android app leveraged have been made open source so that we can all contribute.
+                The links to their respective repositories can be found below.</p>
+            <p>govote Android Mobile App was created by <a href="https://twitter.com/AdetuyiTolu">Adetuyi Tolu Emmanuel</a> </p>
+            <p>Likewise the API and we was created by <a href="https://twitter.com/olayinkaos">Olayinka Omole</a> and
+                <a href="https://twitter.com/yomieluwande">Yomi Eluwande</a></p>
+            <h3>Links and Credits </h3>
+            <a href="https://github.com/CrevHive/GoVote">govote android on GitHub</a><br/>
+            <a href="https://github.com/ErxiaHQ/govote-app">govote app on GitHub</a><br/>
+            <a href="https://github.com/ErxiaHQ/govote-api">govote  apion GitHub</a><br/>
+            Illustrations by <a href="http://undraw.co">undraw.co</a>
+        </div>
+</string>
+
 </resources>
