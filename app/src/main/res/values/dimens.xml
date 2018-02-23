@@ -8,4 +8,5 @@
     <dimen name="dots_margin_bottom">20dp</dimen>
     <dimen name="title">18sp</dimen>
     <dimen name="body">16sp</dimen>
+    <dimen name="bottom_sheet_width">0dp</dimen>
 </resources>
