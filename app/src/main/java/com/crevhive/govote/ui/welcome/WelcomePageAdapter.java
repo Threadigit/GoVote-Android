@@ -1,14 +1,14 @@
-package com.crevhive.govote;
+package com.crevhive.govote.ui.welcome;
 
 import android.app.Activity;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
 
 /**
- * Created by toluadetuyi on 2/19/18.
+ * @author toluadetuyi
+ *         Welcome Page Adapter
  */
 
 public class WelcomePageAdapter extends PagerAdapter {
