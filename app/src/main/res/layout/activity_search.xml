@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
@@ -16,51 +17,63 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="@dimen/fab_margin"
         android:layout_marginLeft="@dimen/fab_margin"
-        android:layout_marginRight="@dimen/fab_margin"
-        android:layout_marginTop="60dp"
-        android:background="@color/colorAccent"
-        android:padding="1dp">
+        android:layout_marginRight="@dimen/fab_margin">
 
-        <EditText
+        <com.arlib.floatingsearchview.FloatingSearchView
+            android:id="@+id/search_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:drawableRight="@android:drawable/ic_menu_search"
-            android:hint="@string/action_search"
-            android:lines="1"
-            android:padding="@dimen/fab_margin"
-            android:textColor="@color/colorPrimaryDark"
-            android:tooltipText="@string/action_settings"/>
+            android:background="@color/gray"
+            app:floatingSearch_close_search_on_keyboard_dismiss="true"
+            app:floatingSearch_leftActionMode="showHamburger"
+            app:floatingSearch_searchHint="@string/action_search"
+            app:floatingSearch_showSearchKey="true"
+            app:floatingSearch_suggestionsListAnimDuration="250"/>
+
     </LinearLayout>
-<RelativeLayout
-    android:layout_alignParentBottom="true"
-    android:layout_width="match_parent"
-    android:padding="@dimen/fab_margin"
-    android:background="@color/colorPrimaryDark"
-    android:layout_height="50dp">
-    <Button
-        android:id="@+id/btn_suggest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:background="@null"
-        android:text="@string/suggest"
-        android:textColor="@color/white"/>
 
-    <Button
-        android:id="@+id/btn_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@null"
-        android:text="@string/share"
-        android:textColor="@color/white"/>
+        android:background="@color/colorPrimaryDark"
+        android:paddingLeft="@dimen/fab_margin"
+        android:paddingRight="@dimen/fab_margin">
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/btn_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="@string/about"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/btn_reload"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="@string/reload"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/btn_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="@string/share"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
 </RelativeLayout>
