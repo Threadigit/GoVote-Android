@@ -9,7 +9,7 @@ To run on your pc, you would need the following installed:
 
 ## Todo
 - Improve search Functionality
-- Unint and UI anTests
+- Unit and UI Tests
 - Add countdown timer
 - Add social likes
 
