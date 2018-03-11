@@ -3,32 +3,33 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="270dp"
         android:layout_gravity="center_horizontal"
         android:padding="24dp"
-        app:srcCompat="@drawable/ic_pvc_choose"/>
+        app:srcCompat="@drawable/pvc_choose"/>
 
     <TextView
-        android:textStyle="bold"
-        android:fontFamily="casual"
-        android:textSize="@dimen/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/fab_margin"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/first_text"/>
+        android:fontFamily="casual"
+        android:text="@string/first_text"
+        android:textSize="@dimen/title"
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="wrap_content"
-        android:padding="@dimen/fab_margin"
-        android:fontFamily="casual"
-        android:textSize="@dimen/body"
-        android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
-        android:text="@string/first_desc"/>
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="casual"
+        android:padding="@dimen/fab_margin"
+        android:text="@string/first_desc"
+        android:textSize="@dimen/body"/>
 </LinearLayout>

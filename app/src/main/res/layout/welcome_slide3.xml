@@ -9,9 +9,9 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:padding="24dp"
-        app:srcCompat="@drawable/ic_pvc_windows"/>
+        android:layout_gravity="center_horizontal"
+       />
 
     <TextView
         android:layout_width="wrap_content"
