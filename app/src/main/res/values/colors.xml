@@ -9,9 +9,11 @@
         <item>@color/white</item>
         <item>@color/white</item>
         <item>@color/white</item>
+        <item>@color/white</item>
     </array>
 
     <array name="array_dot_active">
+        <item>@color/colorAccent</item>
         <item>@color/colorAccent</item>
         <item>@color/colorAccent</item>
         <item>@color/colorAccent</item>
