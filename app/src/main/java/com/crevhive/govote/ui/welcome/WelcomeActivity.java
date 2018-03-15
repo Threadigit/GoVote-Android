@@ -4,15 +4,14 @@ package com.crevhive.govote.ui.welcome;
  * @author toluAdetuyi
  */
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -22,6 +21,14 @@ import android.widget.TextView;
 
 import com.crevhive.govote.R;
 import com.crevhive.govote.ui.search.SearchActivity;
+import com.crevhive.govote.ui.welcome.slides.Slide0Fragment;
+import com.crevhive.govote.ui.welcome.slides.Slide1Fragment;
+import com.crevhive.govote.ui.welcome.slides.Slide2Fragment;
+import com.crevhive.govote.ui.welcome.slides.Slide3Fragment;
+import com.crevhive.govote.util.CountDownTimer;
+
+import java.util.ArrayList;
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,7 +50,7 @@ public class WelcomeActivity extends AppCompatActivity {
     public Button btnNext;
 
     private TextView[] dots;
-    private int[] layouts;
+    private ArrayList<Fragment> layoutList = new ArrayList<>();
 
     private WelcomePageAdapter myViewPagerAdapter;
 
@@ -74,17 +81,15 @@ public class WelcomeActivity extends AppCompatActivity {
     private void initViewPager() {
 
         //add all slides layouts
-        layouts = new int[]{
-                R.layout.welcome_slide1,
-                R.layout.welcome_slide2,
-                R.layout.welcome_slide3};
+        layoutList.add(new Slide0Fragment());
+        layoutList.add(new Slide1Fragment());
+        layoutList.add(new Slide2Fragment());
+        layoutList.add(new Slide3Fragment());
 
         // adding bottom dots
         addBottomDots(0);
 
-        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        myViewPagerAdapter = new WelcomePageAdapter(layouts, layoutInflater, this);
+        myViewPagerAdapter = new WelcomePageAdapter(layoutList,getSupportFragmentManager());
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
 
@@ -92,7 +97,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void addBottomDots(int currentPage) {
 
-        dots = new TextView[layouts.length];
+        dots = new TextView[layoutList.size()];
         int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
         int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive);
 
@@ -130,7 +135,7 @@ public class WelcomeActivity extends AppCompatActivity {
         public void onPageSelected(int position) {
             addBottomDots(position);
 
-            if (position == layouts.length - 1) {
+            if (position == layoutList.size() - 1) {
 
                 btnNext.setText(getString(R.string.start));
                 btnSkip.setVisibility(View.GONE);
@@ -189,7 +194,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         int current = getItem(+1);
 
-        if (current < layouts.length) {
+        if (current < layoutList.size()) {
 
             // move to next screen
             viewPager.setCurrentItem(current);

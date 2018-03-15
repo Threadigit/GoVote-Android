@@ -1,54 +1,37 @@
 package com.crevhive.govote.ui.welcome;
 
 import android.app.Activity;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * @author toluadetuyi
  *         Welcome Page Adapter
  */
 
-public class WelcomePageAdapter extends PagerAdapter {
+public class WelcomePageAdapter extends FragmentPagerAdapter {
 
-    private LayoutInflater layoutInflater;
-    int[] layouts;
-    Activity activity;
+    private ArrayList<Fragment> layoutList;
 
-    public WelcomePageAdapter(int[] layouts, LayoutInflater layoutInflater, Activity activity) {
-
-        this.layouts = layouts;
-        this.layoutInflater = layoutInflater;
-        this.activity = activity;
-    }
-
-    @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-
-        View view = layoutInflater.inflate(layouts[position], container, false);
-        container.addView(view);
-
-        activity.overridePendingTransition(android.R.anim.fade_in,
-                android.R.anim.fade_out);
-        return view;
+    public WelcomePageAdapter(ArrayList<Fragment> layoutList, FragmentManager fragmentManager) {
+        super(fragmentManager);
+        this.layoutList = layoutList;
     }
 
     @Override
     public int getCount() {
-        return layouts.length;
+        return layoutList.size();
     }
 
     @Override
-    public boolean isViewFromObject(View view, Object obj) {
-        return view == obj;
-    }
-
-
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        View view = (View) object;
-        container.removeView(view);
+    public Fragment getItem(int position) {
+        return layoutList.get(position);
     }
 }

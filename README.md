@@ -25,7 +25,7 @@ An example would be:
 
 `ft-tolu-adetuyi-countdown`
 
-When you're done, please send a GitHub Pull Request to govote-app with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)). 
+When you're done, please send a GitHub Pull Request to govote-app with a clear list of what you've done (read more about [pull requests](https://help.github.com/articles/about-pull-requests/)). 
 
 
 Please follow the standard conventions and make sure all of your commits are atomic (one feature per commit).
