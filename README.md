@@ -10,7 +10,6 @@ To run on your pc, you would need the following installed:
 ## Todo
 - Improve search Functionality
 - Unit and UI Tests
-- Add countdown timer
 - Add social likes
 
 ## Contributing
@@ -37,5 +36,9 @@ $ git commit -m "A brief summary of the commit
 > 
 > A paragraph describing what changed and its impact."
 ```
+
+## Contributors
+- [Adetuyi Tolu Emmanuel](https://github.com/adetuyiTolu)
+- [Emmanuel Kehinde](https://github.com/emmanuelkehinde)
 
 Thanks!
