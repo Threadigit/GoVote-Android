@@ -47,5 +47,6 @@
         </div>
 </string>
     <string name="countdown_text">COUNTDOWN TO THE 2019 ELECTIONS</string>
+    <string name="default_time_text">00</string>
 
 </resources>
