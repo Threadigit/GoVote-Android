@@ -28,6 +28,9 @@ android {
             signingConfig signingConfigs.config
         }
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
@@ -49,5 +52,11 @@ dependencies {
     //butterKnife
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+
+    // required if you want to use Mockito for unit tests
+    testImplementation 'org.mockito:mockito-core:2.13.0'
+    // required if you want to use Mockito for Android tests
+    androidTestImplementation 'org.mockito:mockito-android:2.12.0'
 
 }
