@@ -26,14 +26,22 @@ public class UnitTestSearchModel {
     private static final boolean TEST_IS_HISTORY = true;
 
     @Mock Parcel parcel;
-    @Mock Parcel testWrite;
 
+    /**
+     * Basic test that the body corresponds to name passed in to constructor
+     * @throws Exception
+     */
     @Test
     public void name_is_correct() throws Exception {
         Search searchUnderTest = new Search(TEST_NAME);
         assertEquals(TEST_NAME, searchUnderTest.getBody());
     }
 
+    /**
+     * Basic test to ensure the Search(Parcel source) constructor properly reads values and sets the
+     * history flag to false with int = 0
+     * @throws Exception
+     */
     @Test
     public void parcel_constructor_is_correct_not_history() throws Exception{
         when(parcel.readString()).thenReturn(TEST_NAME);
@@ -45,6 +53,11 @@ public class UnitTestSearchModel {
         assertEquals(!TEST_IS_HISTORY, searchUnderTest.getIsHistory());
     }
 
+    /**
+     * Basic test to ensure the Search(Parcel source) constructor properly reads values and sets the
+     * history flag to true with int = 1
+     * @throws Exception
+     */
     @Test
     public void parcel_constructor_is_correct_is_history() throws Exception{
         when(parcel.readString()).thenReturn(TEST_NAME);

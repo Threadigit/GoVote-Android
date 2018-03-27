@@ -23,6 +23,10 @@ public class InstrumentedTestSearchModel {
     private static final int TEST_IS_NOT_HISTORY_INT = 0;
     private static final boolean TEST_IS_HISTORY = true;
 
+    /**
+     * Testing that writeToParcel writes the correct value - specifically for a mIsHistory = false
+     * @throws Exception
+     */
     @Test
     public void write_to_parcel_is_correct_not_history() throws Exception {
         Search searchUnderTest  = new Search(TEST_NAME);
@@ -35,6 +39,10 @@ public class InstrumentedTestSearchModel {
         assertEquals(TEST_IS_NOT_HISTORY_INT, testResultParcel.readInt());
     }
 
+    /**
+     * Testing that writeToParcel writes the correct value - specifically for a mIsHistory = true
+     * @throws Exception
+     */
     @Test
     public void write_to_parcel_is_correct_is_history() throws Exception {
         Search searchUnderTest  = new Search(TEST_NAME);
@@ -48,6 +56,10 @@ public class InstrumentedTestSearchModel {
         assertEquals(TEST_IS_HISTORY_INT, testResultParcel.readInt());
     }
 
+    /**
+     * Testing the search Creator properly constructs a Search object from a valid Parcel
+     * @throws Exception
+     */
     @Test
     public void search_parcle_creator_test() throws Exception {
         Search searchUnderTest = new Search(TEST_NAME);
